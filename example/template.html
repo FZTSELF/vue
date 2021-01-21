@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <template id="tab">
+        <h2 style="color:red">我是Template标签模板</h2>
+    </template>
+</body>
+</html>
+<script type="x-template" id="tab1">
+    <h2 style="color:red">我是Script标签模板</h2>
+</script> 
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'hhhhhhh'
+        },
+       template:`<h2 style="color:red">放在构造器选项里面的模板写法</h2>`,
+        //template:"#tab1",
+       //template:"#tab"
+    })
+
+</script>

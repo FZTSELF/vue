@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{message}}
+    </div>
+   <p><button onclick="destroy()">卸载</button></p>
+   <p><button onclick="reload()">刷新</button></p>
+   <p><button onclick="tick()">修改</button></p>
+</body>
+</html>
+<script type="text/javascript">
+
+  var ff=Vue.extend({
+    template:`<p>{{message}}</p>`,
+    data:function(){
+      return{
+        message:'ggggg'
+      }
+    },
+    mounted:function(){
+      console.log("mountd创建")
+    },
+    destroyed:function(){
+      console.log("destroyed---")
+    },
+    updated:function(){
+      console.log("updated---")
+    }
+  })
+
+  var vm=new ff().$mount("#app");
+
+  function destroy(){
+    vm.$destroy();
+  }
+
+  function reload(){
+    vm.$forceUpdate();
+  }
+
+  function tick(){
+    vm.message='update +++++';
+    vm.$nextTick(function(){
+      console.log('message更新后调用')
+    });
+  }
+</script>

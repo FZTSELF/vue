@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{num}}
+      <p><button @click="add">ADD</button></p>
+    </div>
+   
+</body>
+</html>
+<script type="text/javascript">
+
+
+    var mixin={
+        data:function(){
+            return{
+                message:'mmm',
+                foo:'mmmmm'
+            }
+        }
+    }
+
+   var addLog={
+       updated:function(){
+           console.log(this.num)
+       }
+   };
+
+   Vue.mixin({
+    updated:function(){
+           console.log('全局')
+       }
+   })
+
+    var app=new Vue({
+        mixins:[addLog,mixin],
+        el:'#app',
+       data:{
+         num:1,
+         message:'gggg',
+         bar:'dddd'
+       },
+       created:function(){
+           console.log(this.$data)
+       },
+       methods:{
+           add:function(){
+               this.num++;
+           }
+       },
+       updated:function(){
+           console.log('原')
+       }
+    
+     })
+
+ 
+
+</script>

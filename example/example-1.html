@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{message}}
+    </div>
+   
+</body>
+</html>
+<script type="text/javascript">
+
+ 
+
+    var app=new Vue({
+        
+        el:'#app',
+       data:{
+         message:'ggggg'
+        
+       },
+        mounted:function(){
+            $("#app").html('ttttt')
+        },
+       methods:{
+           add:function(){
+                console.log('构造器ADD方法');
+               
+           }
+       }
+      
+     })
+
+     app.add();
+     console.log(app);
+
+</script>
